@@ -31,7 +31,13 @@ Vue.createApp({
             ],
         };
     },
+    created() {
+        setInterval(this.nextSlide, 3000); // Cambia slide ogni 3 secondi
+    },
     methods: {
+        nextSlide() {
+            this.currentSlideIndex = (this.currentSlideIndex + 1) % this.slides.length;
+        },
         changeSlide(index) {
             this.currentSlideIndex = index;
         },
